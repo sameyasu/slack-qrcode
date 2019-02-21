@@ -1,6 +1,8 @@
 {
   "require" : {
-    "monolog/monolog": "^1.22"
+    "monolog/monolog": "^1.22",
+    "ext-gd": "*",
+    "chillerlan/php-qrcode": "^3"
   },
   "autoload": {
     "psr-4": {
