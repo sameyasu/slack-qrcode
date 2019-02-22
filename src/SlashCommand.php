@@ -28,7 +28,7 @@ class SlashCommand
     protected function isValidToken(string $token) : bool
     {
         $valid = getenv('SLASH_COMMAND_TOKEN');
-        if (!empty($valid)) {
+        if (empty($valid)) {
             $this->log()->error('Not set Variable... SLASH_COMMAND_TOKEN');
 
             return false;
