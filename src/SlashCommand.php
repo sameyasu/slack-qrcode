@@ -17,13 +17,20 @@ class SlashCommand
             return;
         }
 
+        $text = trim($params['text']);
+        if (empty($text)) {
+            $this->log()->debug('No Content');
+            $this->respondError('No Content');
+            return;
+        }
+
         $response = [
             'response_type' => 'in_channel',
             'text' => '',
             'attachments' => [
                 [
-                    'text' => $params['text'],
-                    'image_url' => $this->getQrcodeRenderURL($params['text'])
+                    'text' => $text,
+                    'image_url' => $this->getQrcodeRenderURL($text)
                 ]
             ]
         ];
