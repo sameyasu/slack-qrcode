@@ -20,10 +20,12 @@ class QRImageRenderer
 
         $qrcode = new QRCode($options);
 
-        $this->log()->debug('[text] ' . $text);
+        $decoded = base64_decode($text);
+        $this->log()->debug('[text] ' . $decoded);
 
         try {
-            $img = $qrcode->render($text);
+            // No cache
+            $img = $qrcode->render($decoded);
         } catch (QRCodeException $e) {
             $img = $this->getErrorImage();
         }

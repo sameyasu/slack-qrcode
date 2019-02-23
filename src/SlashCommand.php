@@ -33,7 +33,7 @@ class SlashCommand
 
     protected function getQrcodeRenderURL(string $text) : string
     {
-        return sprintf('https://%s/img/%s', $_SERVER['HTTP_HOST'], urlencode($text));
+        return sprintf('https://%s/img/%s', $_SERVER['HTTP_HOST'], urlencode(base64_encode($text)));
     }
 
     protected function isValidToken(string $token) : bool
