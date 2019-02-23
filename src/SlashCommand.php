@@ -22,6 +22,7 @@ class SlashCommand
             'text' => '',
             'attachments' => [
                 [
+                    'text' => $params['text'],
                     'image_url' => $this->getQrcodeRenderURL($params['text'])
                 ]
             ]
