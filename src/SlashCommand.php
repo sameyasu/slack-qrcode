@@ -17,7 +17,17 @@ class SlashCommand
             return;
         }
 
-        echo $this->getQrcodeRenderURL($params['text']);
+        $response = [
+            'response_type' => 'in_channel',
+            'text' => '',
+            'attachments' => [
+                [
+                    'image_url' => $this->getQrcodeRenderURL($params['text'])
+                ]
+            ]
+        ];
+
+        echo json_encode($response);
     }
 
     protected function getQrcodeRenderURL(string $text) : string
